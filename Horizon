@@ -1087,6 +1087,7 @@ Horizon.PLAttackCBring.MouseButton1Click:Connect(function()
         Horizon.PLAttackCBring.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
         CBringing = true
         while CBringing == true do
+            if not game.CoreGui:FindFirstChild("Horizon") then break end
             if CBringing == false then break end
             task.wait()
             pcall(function()
@@ -1136,6 +1137,7 @@ Horizon.PLAttackReap.MouseButton1Click:Connect(function()
         Horizon.PLAttackReap.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
         LoopReap = true
         while LoopReap == true do
+            if not game.CoreGui:FindFirstChild("Horizon") then break end
             if LoopReap == false then break end
             task.wait(0.2)
             pcall(function()
@@ -1183,6 +1185,7 @@ Horizon.PLAttackSoulAttack.MouseButton1Click:Connect(function()
         Horizon.PLAttackSoulAttack.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
         LoopSoulAttack = true
         while LoopSoulAttack == true do
+            if not game.CoreGui:FindFirstChild("Horizon") then break end
             if LoopSoulAttack == false then break end
             task.wait()
             pcall(function()
@@ -3985,6 +3988,7 @@ spawn(function()
                 local speed = 5
                 spawn(function()
                     while true do
+                        if not game.CoreGui:FindFirstChild("Horizon") then break end
                         for i = 0,1,0.001*speed do
                             ui.PremiumBar.BackgroundColor3 = Color3.fromHSV(i,1,1)
                             wait()
@@ -4004,6 +4008,7 @@ spawn(function()
                 local speed = 5
                 spawn(function()
                     while true do
+                        if not game.CoreGui:FindFirstChild("Horizon") then break end
                         for i = 0,1,0.001*speed do
                             ui.PremiumBar.BackgroundColor3 = Color3.fromHSV(i,1,1)
                             wait()
@@ -4018,6 +4023,7 @@ spawn(function()
                 local speed = 5
                 spawn(function()
                     while true do
+                        if not game.CoreGui:FindFirstChild("Horizon") then break end
                         for i = 0,1,0.001*speed do
                             ui.PremiumBar.BackgroundColor3 = Color3.fromHSV(i,1,1)
                             wait()
@@ -4154,6 +4160,7 @@ game.Players.PlayerAdded:Connect(function(plr)
             local speed = 5
             spawn(function()
                 while true do
+                    if not game.CoreGui:FindFirstChild("Horizon") then break end
                     for i = 0,1,0.001*speed do
                         ui.PremiumBar.BackgroundColor3 = Color3.fromHSV(i,1,1)
                         wait()
@@ -4173,6 +4180,7 @@ game.Players.PlayerAdded:Connect(function(plr)
             local speed = 5
             spawn(function()
                 while true do
+                    if not game.CoreGui:FindFirstChild("Horizon") then break end
                     for i = 0,1,0.001*speed do
                         ui.PremiumBar.BackgroundColor3 = Color3.fromHSV(i,1,1)
                         wait()
@@ -4187,6 +4195,7 @@ game.Players.PlayerAdded:Connect(function(plr)
             local speed = 5
             spawn(function()
                 while true do
+                    if not game.CoreGui:FindFirstChild("Horizon") then break end
                     for i = 0,1,0.001*speed do
                         ui.PremiumBar.BackgroundColor3 = Color3.fromHSV(i,1,1)
                         wait()
