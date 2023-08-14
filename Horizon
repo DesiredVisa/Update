@@ -1,6 +1,7 @@
 if game.PlaceId ~= 2202352383 then return end
 
 if getgenv().HorizonExecuted == true then return end
+getgenv().HorizonExecuted = true
 
 spawn(function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/kjasudgfisdfh/quan/main/audio', true))()
@@ -3064,6 +3065,7 @@ function NewNotification(text, time, color)
         local NotificationText = Instance.new("TextLabel")
         local NotificationUIStroke = Instance.new("UIStroke")
         local NotificationUIGradient = Instance.new("UIGradient")
+        local SecretButton = Instance.new("TextButton")
     
         NotificationFrameParent.Name = "NotificationFrameParent"
         NotificationFrameParent.Parent = Horizon.Notifications
@@ -3100,6 +3102,16 @@ function NewNotification(text, time, color)
         NotificationText.TextScaled = true
         NotificationText.TextSize = 14.000
         NotificationText.TextWrapped = true
+
+        SecretButton.Name = ":3"
+        SecretButton.Parent = NotificationText
+        SecretButton.BackgroundTransparency = 1
+        SecretButton.TextTransparency = 1
+        SecretButton.Size = UDim2.new(1, 0, 1, 0)
+        SecretButton.MouseButton1Click:Connect(function()
+            NotificationText.Text = "touch some grass 🌱💀"
+        end)
+
         NotificationUIStroke.Parent = NotificationFrame
         NotificationUIStroke.Thickness = 2.5
         if color == "rainbow" then
