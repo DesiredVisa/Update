@@ -1,6 +1,6 @@
 # Horizon
 This is a script made for spts <br />
-I added a bunch of random scripts together into 1 gui <br />
+I added a bunch of random scripts together into one gui <br />
 U can use it if u want i just made it for fun <br />
 
 ```lua
