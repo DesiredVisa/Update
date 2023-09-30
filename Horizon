@@ -194,7 +194,20 @@ local Horizon = {
     ScriptsCorner = Instance.new("UICorner"),
     SettingsLine = Instance.new("Frame"),
     SettingsTitle = Instance.new("TextLabel"),
-    SettingsTitleImage = Instance.new("ImageLabel"),
+    SettingsTitleImage = Instance.new("ImageButton"),
+    ExperimentalSettingsFrame = Instance.new("Frame"),
+    ExperimentalSettingsCorner = Instance.new("UICorner"),
+    ExperimentalSettingsTitle = Instance.new("TextLabel"),
+    ExperimentalSettings1 = Instance.new("TextButton"),
+    ExperimentalSettings1Corner = Instance.new("UICorner"),
+    ExperimentalSettings1Title = Instance.new("TextLabel"),
+    ExperimentalSettings2 = Instance.new("TextButton"),
+    ExperimentalSettings2Corner = Instance.new("UICorner"),
+    ExperimentalSettings2Title = Instance.new("TextLabel"),
+    ExperimentalSettings3 = Instance.new("TextButton"),
+    ExperimentalSettings3Corner = Instance.new("UICorner"),
+    ExperimentalSettings3Title = Instance.new("TextLabel"),
+    ExperimentalSettings3Tip = Instance.new("TextLabel"),
     SettingsCorner = Instance.new("UICorner"),
     Script1 = Instance.new("Frame"),
     Script1Title =  Instance.new("TextLabel"),
@@ -1338,6 +1351,143 @@ Horizon.SettingsTitleImage.Position = UDim2.new(0.345, 0, 0.48, 0)
 Horizon.SettingsTitleImage.Size = UDim2.new(1.3, 0, 1.3, 0)
 Horizon.SettingsTitleImage.SizeConstraint = Enum.SizeConstraint.RelativeYY
 Horizon.SettingsTitleImage.Image = "rbxassetid://8992031056"
+Horizon.SettingsTitleImage.MouseButton1Click:Connect(function()
+    if Horizon.ExperimentalSettingsFrame.Visible == false then
+        Horizon.ExperimentalSettingsFrame.Visible = true
+    elseif Horizon.ExperimentalSettingsFrame.Visible == true then
+        Horizon.ExperimentalSettingsFrame.Visible = false
+    end
+end)
+
+Horizon.ExperimentalSettingsFrame.Name = "ExperimentalSettingsFrame"
+Horizon.ExperimentalSettingsFrame.Parent = Horizon.Settings
+Horizon.ExperimentalSettingsFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+Horizon.ExperimentalSettingsFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+Horizon.ExperimentalSettingsFrame.BackgroundTransparency = 0.1
+Horizon.ExperimentalSettingsFrame.Position = UDim2.new(0.5, 0, -1, 0)
+Horizon.ExperimentalSettingsFrame.Size = UDim2.new(1, 0, 1.5, 0)
+Horizon.ExperimentalSettingsFrame.Visible = false
+
+Horizon.ExperimentalSettingsCorner.Parent = Horizon.ExperimentalSettingsFrame
+Horizon.ExperimentalSettingsCorner.CornerRadius = UDim.new(0, 10)
+
+Horizon.ExperimentalSettingsTitle.Name = "ExperimentalSettingsTitle"
+Horizon.ExperimentalSettingsTitle.Parent = Horizon.ExperimentalSettingsFrame
+Horizon.ExperimentalSettingsTitle.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Horizon.ExperimentalSettingsTitle.BackgroundTransparency = 1
+Horizon.ExperimentalSettingsTitle.TextTransparency = 0
+Horizon.ExperimentalSettingsTitle.Position = UDim2.new(0.08, 0, 0.05, 0) 
+Horizon.ExperimentalSettingsTitle.Size = UDim2.new(0.850000024, 0, 0.1, 0)
+Horizon.ExperimentalSettingsTitle.Font = Enum.Font.GothamMedium
+Horizon.ExperimentalSettingsTitle.Text = "Experimental Settings"
+Horizon.ExperimentalSettingsTitle.TextColor3 = Color3.fromRGB(233, 233, 233)
+Horizon.ExperimentalSettingsTitle.TextScaled = true
+Horizon.ExperimentalSettingsTitle.TextSize = 14.000
+Horizon.ExperimentalSettingsTitle.TextWrapped = true
+
+Horizon.ExperimentalSettings1.Name = "Setting1"
+Horizon.ExperimentalSettings1.Parent = Horizon.ExperimentalSettingsFrame
+Horizon.ExperimentalSettings1.AnchorPoint = Vector2.new(0.5, 0.5)
+Horizon.ExperimentalSettings1.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Horizon.ExperimentalSettings1.BackgroundTransparency = 0
+Horizon.ExperimentalSettings1.TextTransparency = 1
+Horizon.ExperimentalSettings1.Position = UDim2.new(0.5, 0, 0.3, 0)
+Horizon.ExperimentalSettings1.AutoButtonColor = false
+Horizon.ExperimentalSettings1.Size = UDim2.new(0.8, 0, 0.225, 0)
+Horizon.ExperimentalSettings1.Visible = true
+
+Horizon.ExperimentalSettings1Title.Name = "Setting1Title"
+Horizon.ExperimentalSettings1Title.Parent = Horizon.ExperimentalSettings1
+Horizon.ExperimentalSettings1Title.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Horizon.ExperimentalSettings1Title.BackgroundTransparency = 1
+Horizon.ExperimentalSettings1Title.TextTransparency = 0
+Horizon.ExperimentalSettings1Title.Position = UDim2.new(-0.25, 0, 0.255, 0)
+Horizon.ExperimentalSettings1Title.Size = UDim2.new(1.5, 0, 0.5, 0)
+Horizon.ExperimentalSettings1Title.Font = Enum.Font.GothamBold
+Horizon.ExperimentalSettings1Title.Text = "Train Fist + BT (Slower)"
+Horizon.ExperimentalSettings1Title.TextColor3 = Color3.fromRGB(233, 233, 233)
+Horizon.ExperimentalSettings1Title.TextScaled = true
+Horizon.ExperimentalSettings1Title.TextSize = 26.000
+Horizon.ExperimentalSettings1Title.TextWrapped = true
+
+Horizon.ExperimentalSettings1Corner.CornerRadius = UDim.new(0, 10)
+Horizon.ExperimentalSettings1Corner.Name = "UICorner"
+Horizon.ExperimentalSettings1Corner.Parent = Horizon.ExperimentalSettings1
+
+Horizon.ExperimentalSettings2.Name = "Setting2"
+Horizon.ExperimentalSettings2.Parent = Horizon.ExperimentalSettingsFrame
+Horizon.ExperimentalSettings2.AnchorPoint = Vector2.new(0.5, 0.5)
+Horizon.ExperimentalSettings2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Horizon.ExperimentalSettings2.BackgroundTransparency = 0
+Horizon.ExperimentalSettings2.TextTransparency = 1
+Horizon.ExperimentalSettings2.Position = UDim2.new(0.5, 0, 0.55, 0)
+Horizon.ExperimentalSettings2.AutoButtonColor = false
+Horizon.ExperimentalSettings2.Size = UDim2.new(0.8, 0, 0.225, 0)
+Horizon.ExperimentalSettings2.Visible = true
+
+Horizon.ExperimentalSettings2Title.Name = "Setting2Title"
+Horizon.ExperimentalSettings2Title.Parent = Horizon.ExperimentalSettings2
+Horizon.ExperimentalSettings2Title.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Horizon.ExperimentalSettings2Title.BackgroundTransparency = 1
+Horizon.ExperimentalSettings2Title.TextTransparency = 0
+Horizon.ExperimentalSettings2Title.Position = UDim2.new(-0.25, 0, 0.255, 0)
+Horizon.ExperimentalSettings2Title.Size = UDim2.new(1.5, 0, 0.5, 0)
+Horizon.ExperimentalSettings2Title.Font = Enum.Font.GothamBold
+Horizon.ExperimentalSettings2Title.Text = "Train PP + BT (Slower)"
+Horizon.ExperimentalSettings2Title.TextColor3 = Color3.fromRGB(233, 233, 233)
+Horizon.ExperimentalSettings2Title.TextScaled = true
+Horizon.ExperimentalSettings2Title.TextSize = 26.000
+Horizon.ExperimentalSettings2Title.TextWrapped = true
+
+Horizon.ExperimentalSettings2Corner.CornerRadius = UDim.new(0, 10)
+Horizon.ExperimentalSettings2Corner.Name = "UICorner"
+Horizon.ExperimentalSettings2Corner.Parent = Horizon.ExperimentalSettings2
+
+Horizon.ExperimentalSettings3.Name = "Setting3"
+Horizon.ExperimentalSettings3.Parent = Horizon.ExperimentalSettingsFrame
+Horizon.ExperimentalSettings3.AnchorPoint = Vector2.new(0.5, 0.5)
+Horizon.ExperimentalSettings3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Horizon.ExperimentalSettings3.BackgroundTransparency = 0
+Horizon.ExperimentalSettings3.TextTransparency = 1
+Horizon.ExperimentalSettings3.Position = UDim2.new(0.5, 0, 0.8, 0)
+Horizon.ExperimentalSettings3.AutoButtonColor = false
+Horizon.ExperimentalSettings3.Size = UDim2.new(0.8, 0, 0.225, 0)
+Horizon.ExperimentalSettings3.Visible = true
+Horizon.ExperimentalSettings3.MouseButton1Click:Connect(function()
+    pcall(function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-279, 279, 1007)
+    end)
+end)
+
+Horizon.ExperimentalSettings3Title.Name = "Setting3Title"
+Horizon.ExperimentalSettings3Title.Parent = Horizon.ExperimentalSettings3
+Horizon.ExperimentalSettings3Title.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Horizon.ExperimentalSettings3Title.BackgroundTransparency = 1
+Horizon.ExperimentalSettings3Title.TextTransparency = 0
+Horizon.ExperimentalSettings3Title.Position = UDim2.new(-0.25, 0, 0.255, 0)
+Horizon.ExperimentalSettings3Title.Size = UDim2.new(1.5, 0, 0.5, 0)
+Horizon.ExperimentalSettings3Title.Font = Enum.Font.GothamBold
+Horizon.ExperimentalSettings3Title.Text = "TP to 10t BT Pool"
+Horizon.ExperimentalSettings3Title.TextColor3 = Color3.fromRGB(233, 233, 233)
+Horizon.ExperimentalSettings3Title.TextScaled = true
+Horizon.ExperimentalSettings3Title.TextSize = 26.000
+Horizon.ExperimentalSettings3Title.TextWrapped = true
+
+Horizon.ExperimentalSettings3Tip.Name = "tip"
+Horizon.ExperimentalSettings3Tip.Parent = Horizon.ExperimentalSettings3
+Horizon.ExperimentalSettings3Tip.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Horizon.ExperimentalSettings3Tip.BackgroundTransparency = 1
+Horizon.ExperimentalSettings3Tip.TextTransparency = 0
+Horizon.ExperimentalSettings3Tip.Position = UDim2.new(0.15, 0, 1.05, 0)
+Horizon.ExperimentalSettings3Tip.Size = UDim2.new(0.7, 0, 0.2, 0)
+Horizon.ExperimentalSettings3Tip.Font = Enum.Font.GothamBold
+Horizon.ExperimentalSettings3Tip.Text = "Added this bc Quan too lazy to walk there :P"
+Horizon.ExperimentalSettings3Tip.TextColor3 = Color3.fromRGB(233, 233, 233)
+Horizon.ExperimentalSettings3Tip.TextScaled = true
+
+Horizon.ExperimentalSettings3Corner.CornerRadius = UDim.new(0, 10)
+Horizon.ExperimentalSettings3Corner.Name = "UICorner"
+Horizon.ExperimentalSettings3Corner.Parent = Horizon.ExperimentalSettings3
 
 Horizon.SettingsButton2.Name = "2"
 Horizon.SettingsButton2.Parent = Horizon.Settings
@@ -3008,6 +3158,21 @@ MusicTable.LMusic.SoundId = SoundId
 MusicTable.LMusic.TimePosition = SoundTimePosition
 MusicTable.LMusic.Volume = SoundVolume
 
+local SavedQualityLevel = settings().Rendering.QualityLevel
+local PreTrain = false
+local TrainPPDouble = false
+local TrainFSDouble = false
+
+spawn(function()
+    while task.wait(1) do
+        pcall(function()
+            if PreTrain == false then
+                SavedQualityLevel = settings().Rendering.QualityLevel
+            end
+        end)
+    end
+end)
+
 spawn(function()
     if LastPosition ~= false then
         local hesw = math.huge
@@ -3244,6 +3409,9 @@ spawn(function()
 end)
 
 function PrepareTrain()
+    PreTrain = true
+    setfpscap(45)
+    settings().Rendering.QualityLevel = "Level01"
     if BeforeTrainPos == false then
        bftposition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
     elseif bftposition == nil then
@@ -3303,7 +3471,7 @@ function RespawnAP()
         if Spawned == false then return end
         Spawned = false
         Respawning = true
-        if getgenv().stack ~= true and game.Players.LocalPlayer.Character and not TrainFS and not TrainPP then
+        if getgenv().FurryStack ~= true and game.Players.LocalPlayer.Character and not TrainFS and not TrainPP then
             oldposition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         end
         game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
@@ -3314,7 +3482,7 @@ function RespawnAP()
 end
 
 spawn(function()
-    if getgenv().stack == true then return end
+    if getgenv().FurryStack == true then return end
     game.Players.LocalPlayer.CharacterAdded:Connect(function()
         repeat task.wait() until game.Players.LocalPlayer.Character.HumanoidRootPart
         Spawned = true
@@ -3472,7 +3640,7 @@ end)
 spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
         if TrainJS == true then
-            if TrainPP ~= true then
+            if TrainPP ~= true and TrainPPDouble ~= true then
                 game.ReplicatedStorage.RemoteEvent:FireServer({"+MS5"})
                 game.ReplicatedStorage.RemoteEvent:FireServer({"+JF5"})
             end
@@ -3487,12 +3655,87 @@ game:GetService("RunService").Heartbeat:Connect(function()
 end)
 
 game:GetService("RunService").Heartbeat:Connect(function()
+    if TrainPPDouble == true then
+        game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+PP"..PPTrainValue..""})
+    end
+end)
+
+game:GetService("RunService").Heartbeat:Connect(function()
+    if TrainFSDouble == true then
+        game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+FS"..FSTrainValue..""})
+    end
+end)
+
+game:GetService("RunService").Heartbeat:Connect(function()
     if TrainFS == true then
         game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+FS"..FSTrainValue..""})
     end
 end)
 
+Horizon.ExperimentalSettings1.MouseButton1Click:Connect(function()
+    if TrainPPDouble == true then return end
+    TrainFSDouble = not TrainFSDouble
+    if TrainFSDouble then
+        PrepareTrain()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-279, 279, 1007)
+        Horizon.ExperimentalSettings1.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    else
+        setfpscap(999)
+        settings().Rendering.QualityLevel = SavedQualityLevel
+        PreTrain = false
+		Horizon.ExperimentalSettings1.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        RespawnAP()
+        oldposition = bftposition
+        bftposition = nil
+    end
+end)
+
+Horizon.ExperimentalSettings2.MouseButton1Click:Connect(function()
+    if TrainFSDouble == true then return end
+    TrainPPDouble = not TrainPPDouble
+    if TrainPPDouble then
+        PrepareTrain()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-279, 279, 1007)
+        Horizon.ExperimentalSettings2.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    else
+        setfpscap(999)
+        settings().Rendering.QualityLevel = SavedQualityLevel
+        PreTrain = false
+		Horizon.ExperimentalSettings2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        RespawnAP()
+        oldposition = bftposition
+        bftposition = nil
+    end
+end)
+
+spawn(function()
+    game.Players.LocalPlayer.PrivateStats.BodyToughness.Changed:Connect(function(val)
+        if TrainFSDouble == true then
+            TrainFSS()
+            game.Players.LocalPlayer.PrivateStats.FistStrength.Changed:Connect(function(val)
+                if TrainFSDouble == true then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-279, 279, 1007)
+                end
+            end)
+        end
+    end)
+end)
+
+spawn(function()
+    game.Players.LocalPlayer.PrivateStats.BodyToughness.Changed:Connect(function(val)
+        if TrainPPDouble == true then
+            TrainPPP()
+            game.Players.LocalPlayer.PrivateStats.PsychicPower.Changed:Connect(function(val)
+                if TrainPPDouble == true then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-279, 279, 1007)
+                end
+            end)
+        end
+    end)
+end)
+
 Horizon.Script8.MouseButton1Click:Connect(function()
+    if TrainPPDouble or TrainFSDouble == true then return end
     UpdateSaves()
     TrainPP = not TrainPP
     if TrainPP then
@@ -3507,6 +3750,9 @@ Horizon.Script8.MouseButton1Click:Connect(function()
 		task.wait(0.5)
         TrainPPP()
     else
+        setfpscap(999)
+        settings().Rendering.QualityLevel = SavedQualityLevel
+        PreTrain = false
 		Horizon.Script8.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         TrainPP = false
         RespawnAP()
@@ -3516,6 +3762,7 @@ Horizon.Script8.MouseButton1Click:Connect(function()
 end)
 
 Horizon.Script7.MouseButton1Click:Connect(function()
+    if TrainPPDouble or TrainFSDouble == true then return end
     UpdateSaves()
     TrainFS = not TrainFS
     if TrainFS then
@@ -3530,6 +3777,9 @@ Horizon.Script7.MouseButton1Click:Connect(function()
 		task.wait(0.5)
         TrainFSS()
     else
+        setfpscap(999)
+        settings().Rendering.QualityLevel = SavedQualityLevel
+        PreTrain = false
 		Horizon.Script7.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         TrainFS = false
         RespawnAP()
@@ -3841,6 +4091,7 @@ function OpenSettings()
     Horizon.Script9.Visible = true
     Horizon.BarToggle.Visible = false
     Horizon.HealthRSlider.Visible = true
+    Horizon.SettingsTitleImage.Visible = true
     TweenServ:Create(Horizon.Settings, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.1}):Play()
     TweenServ:Create(Horizon.SettingsLine, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
     TweenServ:Create(Horizon.SettingsTitle, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
@@ -3944,6 +4195,8 @@ function CloseSettings()
     Horizon.Script8.Visible = false
     Horizon.Script9.Visible = false
     Horizon.HealthRSlider.Visible = false
+    Horizon.SettingsTitleImage.Visible = false
+    Horizon.ExperimentalSettingsFrame.Visible = false
 end
 
 Horizon.Button1.MouseButton1Down:connect(function()
