@@ -660,7 +660,11 @@ Horizon.BarMover.Position = UDim2.new(0.1, 0, 0.5, 0)
 Horizon.BarMover.Size = UDim2.new(0.2, 0, 1, 0)
 Horizon.BarMover.Visible = true
 
-Horizon.BarMoverGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(144, 41, 246)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(144, 41, 245)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(144, 41, 244))}
+if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+    Horizon.BarMoverGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(66, 245, 108)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(87, 250, 126)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(69, 255, 113))}
+else
+    Horizon.BarMoverGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(144, 41, 246)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(144, 41, 245)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(144, 41, 244))}
+end
 Horizon.BarMoverGradient.Name = "Gradient"
 Horizon.BarMoverGradient.Parent = Horizon.BarMover
 
@@ -1095,10 +1099,17 @@ Horizon.PLAttackCBring.Visible = false
 Horizon.PLAttackCBring.AutoButtonColor = false
 Horizon.PLAttackCBring.MouseButton1Click:Connect(function()
     if CBringing == true then
+        Horizon.PLAttackCBringText.TextColor3 = Color3.fromRGB(238, 238, 238)
         Horizon.PLAttackCBring.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         CBringing = false
     elseif CBringing == false then
-        Horizon.PLAttackCBring.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.PLAttackCBringText.TextColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.PLAttackCBring.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.PLAttackCBringText.TextColor3 = Color3.fromRGB(238, 238, 238)
+            Horizon.PLAttackCBring.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         CBringing = true
         while CBringing == true do
             if not game.CoreGui:FindFirstChild("Horizon") then break end
@@ -1145,10 +1156,17 @@ Horizon.PLAttackReap.Visible = false
 Horizon.PLAttackReap.AutoButtonColor = false
 Horizon.PLAttackReap.MouseButton1Click:Connect(function()
     if LoopReap == true then
+        Horizon.PLAttackReapText.TextColor3 = Color3.fromRGB(238, 238, 238)
         Horizon.PLAttackReap.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         LoopReap = false
     elseif LoopReap == false then
-        Horizon.PLAttackReap.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.PLAttackReapText.TextColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.PLAttackReap.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.PLAttackReapText.TextColor3 = Color3.fromRGB(238, 238, 238)
+            Horizon.PLAttackReap.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         LoopReap = true
         while LoopReap == true do
             if not game.CoreGui:FindFirstChild("Horizon") then break end
@@ -1193,10 +1211,17 @@ Horizon.PLAttackSoulAttack.Visible = false
 Horizon.PLAttackSoulAttack.AutoButtonColor = false
 Horizon.PLAttackSoulAttack.MouseButton1Click:Connect(function()
     if LoopSoulAttack == true then
+        Horizon.PLAttackSoulAttackText.TextColor3 = Color3.fromRGB(238, 238, 238)
         Horizon.PLAttackSoulAttack.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         LoopSoulAttack = false
     elseif LoopSoulAttack == false then
-        Horizon.PLAttackSoulAttack.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.PLAttackSoulAttackText.TextColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.PLAttackSoulAttack.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.PLAttackSoulAttackText.TextColor3 = Color3.fromRGB(238, 238, 238)
+            Horizon.PLAttackSoulAttack.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         LoopSoulAttack = true
         while LoopSoulAttack == true do
             if not game.CoreGui:FindFirstChild("Horizon") then break end
@@ -1802,7 +1827,13 @@ Horizon.HealthRSliderCorner.Parent = Horizon.HealthRSlider
 Horizon.HealthRFilling.Name = "Filling"
 Horizon.HealthRFilling.Parent = Horizon.HealthRSlider
 Horizon.HealthRFilling.AnchorPoint = Vector2.new(0, 0.5)
-Horizon.HealthRFilling.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+
+if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+    Horizon.HealthRFilling.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+else
+    Horizon.HealthRFilling.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+end
+
 Horizon.HealthRFilling.BackgroundTransparency = 0.8
 Horizon.HealthRFilling.Position = UDim2.new(0, 0, 0.5, 0)
 Horizon.HealthRFilling.Size = UDim2.new(0, 0, 1, 0)
@@ -1820,7 +1851,15 @@ Horizon.HealthRLabel.Position = UDim2.new(0.05, 0, 0.5, 0)
 Horizon.HealthRLabel.Size = UDim2.new(0.800000012, 0, 0.600000024, 0)
 Horizon.HealthRLabel.Font = Enum.Font.Gotham
 Horizon.HealthRLabel.Text = ".50"
-Horizon.HealthRLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+    Horizon.HealthRLabel.TextColor3 = Color3.fromRGB(10, 10, 10)
+    Horizon.HealthRLabel.TextStrokeTransparency = 0
+    Horizon.HealthRLabel.TextStrokeColor3 = Color3.fromRGB(69, 255, 113)
+else
+    Horizon.HealthRLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+end
+
 Horizon.HealthRLabel.TextSize = 24.000
 Horizon.HealthRLabel.TextXAlignment = Enum.TextXAlignment.Center
 Horizon.HealthRLabel.TextTransparency = 1
@@ -1834,7 +1873,15 @@ Horizon.HealthRLabel1.Position = UDim2.new(0.1, 0, 0.5, 0)
 Horizon.HealthRLabel1.Size = UDim2.new(0.800000012, 0, 0.600000024, 0)
 Horizon.HealthRLabel1.Font = Enum.Font.Gotham
 Horizon.HealthRLabel1.Text = "       %"
-Horizon.HealthRLabel1.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+    Horizon.HealthRLabel1.TextColor3 = Color3.fromRGB(10, 10, 10)
+    Horizon.HealthRLabel1.TextStrokeTransparency = 0
+    Horizon.HealthRLabel1.TextStrokeColor3 = Color3.fromRGB(69, 255, 113)
+else
+    Horizon.HealthRLabel1.TextColor3 = Color3.fromRGB(255, 255, 255)
+end
+
 Horizon.HealthRLabel1.TextSize = 24.000
 Horizon.HealthRLabel1.TextXAlignment = Enum.TextXAlignment.Center
 Horizon.HealthRLabel1.TextTransparency = 1
@@ -1944,7 +1991,13 @@ Horizon.Script9.Visible = false
 Horizon.Script9.MouseButton1Click:Connect(function()
     TrainJS = not TrainJS
     if TrainJS then
-        Horizon.Script9.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.Script9Title.TextColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.Script9.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.Script9Title.TextColor3 = Color3.fromRGB(233, 233, 233)
+            Horizon.Script9.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         while TrainJS do
             if not game.CoreGui:FindFirstChild("Horizon") then break end
 			task.wait(0.5)
@@ -1958,6 +2011,7 @@ Horizon.Script9.MouseButton1Click:Connect(function()
 		end
     else
         Horizon.Script9.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        Horizon.Script9Title.TextColor3 = Color3.fromRGB(233, 233, 233)
         TrainJS = false
     end
 end)
@@ -2038,7 +2092,12 @@ Horizon.HomeCardPfpCircle.ImageTransparency = 0
 Horizon.HomeCardPfpCircle.Position = UDim2.new(0.18, 0, 0.55, 0)
 Horizon.HomeCardPfpCircle.Size = UDim2.new(0.3, 0, 0.3, 0)
 Horizon.HomeCardPfpCircle.SizeConstraint = Enum.SizeConstraint.RelativeXX
-Horizon.HomeCardPfpCircle.Image = "rbxassetid://11765120841"
+
+if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+    Horizon.HomeCardPfpCircle.Image = "rbxassetid://14983150101"
+else
+    Horizon.HomeCardPfpCircle.Image = "rbxassetid://11765120841"
+end
 
 Horizon.HomeCardPfp.Name = "UserIcon"
 Horizon.HomeCardPfp.Parent = Horizon.HomeCardPfpCircle
@@ -2050,14 +2109,7 @@ Horizon.HomeCardPfp.Position = UDim2.new(0.5, 0, 0.5, 0)
 Horizon.HomeCardPfp.Size = UDim2.new(0.85, 0, 0.85, 0)
 Horizon.HomeCardPfp.SizeConstraint = Enum.SizeConstraint.RelativeXX
 Horizon.HomeCardPfp.Image = ""
-
-if game.Players.LocalPlayer.UserId == 880450315 then
-    Horizon.HomeCardPfp.Image = "rbxassetid://12128638652"
-elseif game.Players.LocalPlayer.UserId == 156361940 then
-    Horizon.HomeCardPfp.Image = "rbxassetid://"
-else
-    Horizon.HomeCardPfp.Image = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-end
+Horizon.HomeCardPfp.Image = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 
 Horizon.HomeCardPfpUICorner.CornerRadius = UDim.new(1, 0)
 Horizon.HomeCardPfpUICorner.Name = "UserCorner"
@@ -2899,7 +2951,6 @@ MusicTable.UICorner.Parent = MusicTable.Music
 MusicTable.Wallpaper.Name = "Wallpaper"
 MusicTable.Wallpaper.Position = UDim2.new(0.5, 0, 0.5, 0)
 MusicTable.Wallpaper.AnchorPoint = Vector2.new(0.5, 0.5)
-MusicTable.Wallpaper.Image = "rbxassetid://11346125307"
 MusicTable.Wallpaper.ZIndex = 0
 MusicTable.Wallpaper.Size = UDim2.new(1, 0, 1, 0)
 MusicTable.Wallpaper.ImageColor3 = Color3.fromRGB(150, 150, 150)
@@ -2907,6 +2958,12 @@ MusicTable.Wallpaper.BackgroundTransparency = 1
 MusicTable.Wallpaper.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MusicTable.Wallpaper.Parent = MusicTable.Music
 MusicTable.Wallpaper.ScaleType = Enum.ScaleType.Crop
+
+if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+    MusicTable.Wallpaper.Image = "rbxassetid://14983197533"
+else
+    MusicTable.Wallpaper.Image = "rbxassetid://11346125307"
+end
 
 MusicTable.UICorner_2.CornerRadius = UDim.new(0, 10)
 MusicTable.UICorner_2.Parent = MusicTable.Wallpaper
@@ -3202,13 +3259,25 @@ spawn(function()
             if TrainFSBR == true then
                 TrainFS = true
                 TrainFSBR = false
-                Horizon.Script7.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+                if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+                    Horizon.Script7.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+                    Horizon.Script7Title.TextColor3 = Color3.fromRGB(10, 10, 10)
+                else
+                    Horizon.Script7.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+                    Horizon.Script7Title.TextColor3 = Color3.fromRGB(233, 233, 233)
+                end
                 PrepareTrain()
                 task.wait(0.1)
                 TrainFSS()
             elseif TrainPPBR == true then
                 TrainFSBR = false
-                Horizon.Script8.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+                if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+                    Horizon.Script8.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+                    Horizon.Script8Title.TextColor3 = Color3.fromRGB(10, 10, 10)
+                else
+                    Horizon.Script8Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    Horizon.Script8.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+                end
                 PrepareTrain()
                 task.wait(0.1)
                 TrainPP = true
@@ -3678,11 +3747,18 @@ Horizon.ExperimentalSettings1.MouseButton1Click:Connect(function()
     if TrainFSDouble then
         PrepareTrain()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-279, 279, 1007)
-        Horizon.ExperimentalSettings1.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.ExperimentalSettings1Title.TextColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.ExperimentalSettings1.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.ExperimentalSettings1Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.ExperimentalSettings1.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
     else
         setfpscap(999)
         settings().Rendering.QualityLevel = SavedQualityLevel
         PreTrain = false
+        Horizon.ExperimentalSettings1Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Horizon.ExperimentalSettings1.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         RespawnAP()
         oldposition = bftposition
@@ -3696,11 +3772,18 @@ Horizon.ExperimentalSettings2.MouseButton1Click:Connect(function()
     if TrainPPDouble then
         PrepareTrain()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-279, 279, 1007)
-        Horizon.ExperimentalSettings2.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.ExperimentalSettings2Title.TextColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.ExperimentalSettings2.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.ExperimentalSettings2Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.ExperimentalSettings2.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
     else
         setfpscap(999)
         settings().Rendering.QualityLevel = SavedQualityLevel
         PreTrain = false
+        Horizon.ExperimentalSettings2Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Horizon.ExperimentalSettings2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         RespawnAP()
         oldposition = bftposition
@@ -3739,9 +3822,16 @@ Horizon.Script8.MouseButton1Click:Connect(function()
     UpdateSaves()
     TrainPP = not TrainPP
     if TrainPP then
-        Horizon.Script8.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.Script8.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Script8Title.TextColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Script8Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.Script8.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         TrainPP = true
         if TrainFS then
+            Horizon.Script7Title.TextColor3 = Color3.fromRGB(255, 255, 255)
             Horizon.Script7.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
             TrainFS = false
         else
@@ -3753,6 +3843,7 @@ Horizon.Script8.MouseButton1Click:Connect(function()
         setfpscap(999)
         settings().Rendering.QualityLevel = SavedQualityLevel
         PreTrain = false
+        Horizon.Script8Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Horizon.Script8.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         TrainPP = false
         RespawnAP()
@@ -3766,9 +3857,16 @@ Horizon.Script7.MouseButton1Click:Connect(function()
     UpdateSaves()
     TrainFS = not TrainFS
     if TrainFS then
-        Horizon.Script7.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.Script7Title.TextColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.Script7.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.Script7Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.Script7.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         TrainFS = true
         if TrainPP then
+            Horizon.Script8Title.TextColor3 = Color3.fromRGB(255, 255, 255)
             Horizon.Script8.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
             TrainPP = false
         else
@@ -3780,6 +3878,7 @@ Horizon.Script7.MouseButton1Click:Connect(function()
         setfpscap(999)
         settings().Rendering.QualityLevel = SavedQualityLevel
         PreTrain = false
+        Horizon.Script7Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Horizon.Script7.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         TrainFS = false
         RespawnAP()
@@ -3869,6 +3968,9 @@ function OpenHome()
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {Position = UDim2.new(0.1, 0, 0.5, 0)}):Play()
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
     end
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        TweenServ:Create(Horizon.Button1Icon, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {ImageColor3 = Color3.fromRGB(10, 10, 10)}):Play()
+    end
     TweenServ:Create(Horizon.Backdrop, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
     game:GetService("CoreGui").PlayerList.Enabled = false
     game:GetService("CoreGui").RobloxGui.Backpack.Visible = false
@@ -3890,6 +3992,9 @@ function CloseHome()
     if GlowOn then
         GlowOn = false
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
+    end
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        TweenServ:Create(Horizon.Button1Icon, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {ImageColor3 = Color3.fromRGB(255, 255, 255)}):Play()
     end
     TweenServ:Create(MusicTable.Music, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {Position = UDim2.new(1.2, 0, 0.85, 0)}):Play()
     TweenServ:Create(Horizon.HomeCard, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {Position = UDim2.new(-0.2, 0, 0.165, 0)}):Play()
@@ -3921,6 +4026,9 @@ function OpenApps()
     elseif GlowOn then
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {Position = UDim2.new(0.3, 0, 0.5, 0)}):Play()
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
+    end
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        TweenServ:Create(Horizon.Button2Icon, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {ImageColor3 = Color3.fromRGB(10, 10, 10)}):Play()
     end
     game:GetService("CoreGui").Horizon.Apps.PlayerList.Visible = true
     Horizon.Icon_8.Visible = true
@@ -3970,6 +4078,9 @@ function CloseApps()
     if GlowOn then
         GlowOn = false
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
+    end
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        TweenServ:Create(Horizon.Button2Icon, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {ImageColor3 = Color3.fromRGB(255, 255, 255)}):Play()
     end
     game:GetService("CoreGui").Horizon.Apps.PlayerList.Visible = false
     TweenServ:Create(Horizon.Icon_8, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
@@ -4030,6 +4141,9 @@ function OpenScripts()
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {Position = UDim2.new(0.7, 0, 0.5, 0)}):Play()
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
     end
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        TweenServ:Create(Horizon.Button3Icon, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {ImageColor3 = Color3.fromRGB(10, 10, 10)}):Play()
+    end
     Horizon.BarToggle.Visible = false
     TweenServ:Create(Horizon.Scripts, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.1}):Play()
     TweenServ:Create(Horizon.ScriptsLine, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
@@ -4044,6 +4158,9 @@ function CloseScripts()
     if GlowOn then
         GlowOn = false
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
+    end
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        TweenServ:Create(Horizon.Button3Icon, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {ImageColor3 = Color3.fromRGB(255, 255, 255)}):Play()
     end
     Horizon.BarToggle.Visible = true
     game:GetService("CoreGui").Horizon.Scripts.ActionFrame.Visible = false
@@ -4073,6 +4190,9 @@ function OpenSettings()
     elseif GlowOn then
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {Position = UDim2.new(0.9, 0, 0.5, 0)}):Play()
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
+    end
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        TweenServ:Create(Horizon.Button4Icon, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {ImageColor3 = Color3.fromRGB(10, 10, 10)}):Play()
     end
     Horizon.Interact2.Visible = true
     Horizon.Interact3.Visible = true
@@ -4140,6 +4260,9 @@ function CloseSettings()
         TweenServ:Create(Horizon.BarMover, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
     end
     Horizon.BarToggle.Visible = true
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        TweenServ:Create(Horizon.Button4Icon, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {ImageColor3 = Color3.fromRGB(255, 255, 255)}):Play()
+    end
     TweenServ:Create(Horizon.Settings, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
     TweenServ:Create(Horizon.SettingsLine, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
     TweenServ:Create(Horizon.SettingsTitle, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
@@ -5118,9 +5241,16 @@ end
 spawn(function()
 	if SuperAura == true then
         SuperAura = true
-        Horizon.SettingsButton3.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton3.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact3.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact3.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton3.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
     elseif SuperAura == false then
         SuperAura = false
+        Horizon.Interact3.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     end
 end)
@@ -5128,9 +5258,16 @@ end)
 spawn(function()
 	if AutoQuests == true then
         AutoQuests = true
-        Horizon.SettingsButton5.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton5.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact5.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact5.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton5.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
     elseif AutoQuests == false then
         AutoQuests = false
+        Horizon.Interact5.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton5.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     end
 end)
@@ -5138,10 +5275,17 @@ end)
 spawn(function()
 	if DarkBalls == true then
         DarkBalls = true
-        Horizon.SettingsButton12.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton12.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact12.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact12.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton12.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         blackballs()
     elseif DarkBalls == false then
         DarkBalls = false
+        Horizon.Interact12.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton12.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     end
 end)
@@ -5149,10 +5293,17 @@ end)
 spawn(function()
 	if LightBullet == true then
         LightBullet = true
-        Horizon.SettingsButton13.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.Interact13.ImageColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.SettingsButton13.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.Interact13.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton13.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         whitebullet()
     elseif DarkBalls == false then
         LightBullet = false
+        Horizon.Interact13.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton13.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     end
 end)
@@ -5160,19 +5311,33 @@ end)
 spawn(function()
 	if RainbowRank == true then
         RainbowRank = true
-        Horizon.SettingsButton7.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton7.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact7.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact7.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton7.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         rgbrank()
     else
         RainbowRank = false
+        Horizon.Interact7.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton7.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     end
 end)
 
 spawn(function()
     if DayNight == true then
-        Horizon.SettingsButton8.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton8.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact8.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact8.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton8.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         daynight()
     else
+        Horizon.Interact8.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton8.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         daynight()
     end
@@ -5180,67 +5345,118 @@ end)
 
 spawn(function()
     if RespawnActive == true then
-        Horizon.SettingsButton2.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton2.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact2.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact2.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton2.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
     else
+        Horizon.Interact2.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     end
 end)
 
 spawn(function()
     if NoAura == true then
-        Horizon.SettingsButton4.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.Interact4.ImageColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.SettingsButton4.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.Interact4.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton4.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
     else
+        Horizon.Interact4.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton4.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     end
 end)
 
 spawn(function()
     if RainbowWeights == true then
-        Horizon.SettingsButton6.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.Interact6.ImageColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.SettingsButton6.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.Interact6.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton6.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         rgbweights()
     else
+        Horizon.Interact6.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton6.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     end
 end)
 
 spawn(function()
     if TrainJS == true then
-        Horizon.Script9.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.Script9.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Script9Title.TextColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Script9Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.Script9.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
     elseif TrainJS == false then
-        Horizon.Script8.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        Horizon.Script9Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+        Horizon.Script9.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     end
 end)
 
 Horizon.Interact2.MouseButton1Click:connect(function()
-    if Horizon.SettingsButton2.BackgroundColor3 == Color3.fromRGB(20, 20, 20) then
-        Horizon.SettingsButton2.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if RespawnActive == false then
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton2.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact2.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact2.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton2.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         RespawnActive = true
-    elseif Horizon.SettingsButton2.BackgroundColor3 == Color3.fromRGB(144, 41, 246) then
+    elseif RespawnActive == true then
+        Horizon.Interact2.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         RespawnActive = false
     end
 end)
 
 Horizon.Interact3.MouseButton1Click:connect(function()
-    if Horizon.SettingsButton3.BackgroundColor3 == Color3.fromRGB(20, 20, 20) then
-        Horizon.SettingsButton3.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if SuperAura == false then
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton3.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact3.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact3.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton3.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         SuperAura = true
         RespawnAP()
         Horizon.SettingsButton4.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        Horizon.Interact4.ImageColor3 = Color3.fromRGB(255, 255, 255)
         NoAura = false
-    elseif Horizon.SettingsButton3.BackgroundColor3 == Color3.fromRGB(144, 41, 246) then
+    elseif SuperAura == true then
+        Horizon.Interact3.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         SuperAura = false
     end
 end)
 
 Horizon.Interact4.MouseButton1Click:connect(function()
-    if Horizon.SettingsButton4.BackgroundColor3 == Color3.fromRGB(20, 20, 20) then
-        Horizon.SettingsButton4.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if NoAura == false then
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton4.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact4.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact4.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton4.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         NoAura = true
         Horizon.SettingsButton3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        Horizon.Interact3.ImageColor3 = Color3.fromRGB(255, 255, 255)
         SuperAura = false
-    elseif Horizon.SettingsButton4.BackgroundColor3 == Color3.fromRGB(144, 41, 246) then
+    elseif NoAura == true then
+        Horizon.Interact4.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton4.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         RespawnAP()
         NoAura = false
@@ -5248,43 +5464,71 @@ Horizon.Interact4.MouseButton1Click:connect(function()
 end)
 
 Horizon.Interact5.MouseButton1Click:connect(function()
-    if Horizon.SettingsButton5.BackgroundColor3 == Color3.fromRGB(20, 20, 20) then
-        Horizon.SettingsButton5.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if AutoQuests == false then
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton5.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact5.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact5.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton5.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         AutoQuests = true
-    elseif Horizon.SettingsButton5.BackgroundColor3 == Color3.fromRGB(144, 41, 246) then
+    elseif AutoQuests == true then
+        Horizon.Interact5.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton5.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         AutoQuests = false
     end
 end)
 
 Horizon.Interact6.MouseButton1Click:connect(function()
-    if Horizon.SettingsButton6.BackgroundColor3 == Color3.fromRGB(20, 20, 20) then
-        Horizon.SettingsButton6.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if RainbowWeights == false then
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.Interact6.ImageColor3 = Color3.fromRGB(10, 10, 10)
+            Horizon.SettingsButton6.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        else
+            Horizon.Interact6.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton6.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         RainbowWeights = true
         rgbweights()
-    elseif Horizon.SettingsButton6.BackgroundColor3 == Color3.fromRGB(144, 41, 246) then
+    elseif RainbowWeights == true then
+        Horizon.Interact6.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton6.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         RainbowWeights = false
     end
 end)
 
 Horizon.Interact7.MouseButton1Click:connect(function()
-    if Horizon.SettingsButton7.BackgroundColor3 == Color3.fromRGB(20, 20, 20) then
-        Horizon.SettingsButton7.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if RainbowRank == false then
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton7.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact7.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact7.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton7.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         RainbowRank = true
         rgbrank()
-    elseif Horizon.SettingsButton7.BackgroundColor3 == Color3.fromRGB(144, 41, 246) then
+    elseif RainbowRank == true then
+        Horizon.Interact7.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton7.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         RainbowRank = false
     end
 end)
 
 Horizon.Interact8.MouseButton1Click:connect(function()
-    if Horizon.SettingsButton8.BackgroundColor3 == Color3.fromRGB(20, 20, 20) then
-        Horizon.SettingsButton8.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if DayNight == false then
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton8.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact8.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact8.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton8.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         DayNight = true
         daynight()
-    elseif Horizon.SettingsButton8.BackgroundColor3 == Color3.fromRGB(144, 41, 246) then
+    elseif DayNight == true then
+        Horizon.Interact8.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton8.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         DayNight = false
         daynight()
@@ -5302,15 +5546,27 @@ Horizon.Interact9.MouseButton1Click:connect(function()
         end)
     end)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/kjasudgfisdfh/quan/main/god", true))()
-    Horizon.SettingsButton9.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        Horizon.SettingsButton9.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        Horizon.Interact9.ImageColor3 = Color3.fromRGB(10, 10, 10)
+    else
+        Horizon.Interact9.ImageColor3 = Color3.fromRGB(255, 255, 255)
+        Horizon.SettingsButton9.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    end
     task.wait(1)
+    Horizon.Interact9.ImageColor3 = Color3.fromRGB(255, 255, 255)
     Horizon.SettingsButton9.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 end)
 
 Horizon.Interact10.MouseButton1Click:connect(function()
     NewNotification("Joining a new server for you.", 10, "")
-    Horizon.SettingsButton10.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    Horizon.SettingsButton10.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        Horizon.SettingsButton10.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        Horizon.Interact10.ImageColor3 = Color3.fromRGB(10, 10, 10)
+    else
+        Horizon.Interact10.ImageColor3 = Color3.fromRGB(255, 255, 255)
+        Horizon.SettingsButton10.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    end
     local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
     local hrp = char:WaitForChild("HumanoidRootPart")
     LastPosition = {["Pos"] = table.concat({hrp.CFrame:GetComponents()},",")}
@@ -5345,37 +5601,62 @@ Horizon.Interact10.MouseButton2Click:connect(function()
             TrainFSBR = true
         end
         UpdateSaves()
-        Horizon.SettingsButton10.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-        Horizon.SettingsButton10.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton10.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact10.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact10.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton10.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
     end)
 end)
 
 Horizon.Interact11.MouseButton1Click:connect(function()
-    Horizon.SettingsButton11.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+        Horizon.SettingsButton11.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+        Horizon.Interact11.ImageColor3 = Color3.fromRGB(10, 10, 10)
+    else
+        Horizon.Interact11.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton11.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/kjasudgfisdfh/quan/main/nolog', true))()
-        task.wait(0.5)
+    end
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/kjasudgfisdfh/quan/main/nolog', true))()
+    task.wait(0.5)
+    Horizon.Interact11.ImageColor3 = Color3.fromRGB(255, 255, 255)
     Horizon.SettingsButton11.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 end)
 
 Horizon.Interact12.MouseButton1Click:connect(function()
-    if Horizon.SettingsButton12.BackgroundColor3 == Color3.fromRGB(20, 20, 20) then
-        Horizon.SettingsButton12.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if DarkBalls == false then
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton12.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact12.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact12.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton12.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         DarkBalls = true
         blackballs()
-    elseif Horizon.SettingsButton12.BackgroundColor3 == Color3.fromRGB(144, 41, 246) then
+    elseif DarkBalls == true then
+        Horizon.Interact12.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton12.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         DarkBalls = false
     end
 end)
 
 Horizon.Interact13.MouseButton1Click:connect(function()
-    if Horizon.SettingsButton13.BackgroundColor3 == Color3.fromRGB(20, 20, 20) then
-        Horizon.SettingsButton13.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+    if LightBullet == false then
+        if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
+            Horizon.SettingsButton13.BackgroundColor3 = Color3.fromRGB(69, 255, 113)
+            Horizon.Interact13.ImageColor3 = Color3.fromRGB(10, 10, 10)
+        else
+            Horizon.Interact13.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            Horizon.SettingsButton13.BackgroundColor3 = Color3.fromRGB(144, 41, 246)
+        end
         LightBullet = true
         whitebullet()
-    elseif Horizon.SettingsButton13.BackgroundColor3 == Color3.fromRGB(144, 41, 246) then
+    elseif LightBullet == true then
+        Horizon.Interact13.ImageColor3 = Color3.fromRGB(255, 255, 255)
         Horizon.SettingsButton13.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         LightBullet = false
     end
