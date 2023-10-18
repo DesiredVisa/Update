@@ -14,7 +14,7 @@ for _,v in pairs(game.ReplicatedStorage:GetChildren()) do
     end
 end
 
-local Release = "rbxUWP"
+local Release = "for-uwp"
 local HomeOpen = false
 local AppsOpen = false
 local ScriptsOpen = false
@@ -35,6 +35,7 @@ local CBringing = false
 local LoopReap = false
 local LoopSoulAttack = false
 local TweenServ = game:GetService("TweenService")
+local CheckIt = false
 
 function LoadDefaults()
 	RespawnActive = true
@@ -546,6 +547,7 @@ Horizon.LoadingCorner.Parent = Horizon.Loading
 Horizon.LoadingIcon.Name = "Icon1"
 Horizon.LoadingIcon.Parent = Horizon.Loading
 Horizon.LoadingIcon.Active = true
+Horizon.LoadingIcon.Rotation = 0
 Horizon.LoadingIcon.AnchorPoint = Vector2.new(0.5, 0.5)
 Horizon.LoadingIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.LoadingIcon.BackgroundTransparency = 1.000
@@ -559,15 +561,26 @@ Horizon.LoadingText.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 Horizon.LoadingText.BackgroundTransparency = 1
 Horizon.LoadingText.TextTransparency = 0
 Horizon.LoadingText.Position = UDim2.new(0.15, 0, 0.45, 0)
-Horizon.LoadingText.Size = UDim2.new(0.850000024, 0, 0.1, 0)
+Horizon.LoadingText.Size = UDim2.new(0.850000024, 0, 0.2, 0)
 Horizon.LoadingText.Font = Enum.Font.GothamMedium
 Horizon.LoadingText.Text = "Waiting for game to load."
 Horizon.LoadingText.TextColor3 = Color3.fromRGB(233, 233, 233)
 Horizon.LoadingText.TextSize = 20.000
+Horizon.LoadingText.TextScaled = true
+
+local RotateImage = TweenServ:Create(Horizon.LoadingIcon, TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out, -1, false, 0), {Rotation = 360})
+RotateImage:Play()
 
 spawn(function()
-    Horizon.LoadingIcon.Rotation = 0
-    TweenServ:Create(Horizon.LoadingIcon, TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out,200,false,0), {Rotation = 360}):Play()
+    while task.wait() do
+        if CheckIt == true then
+            RotateImage:Cancel()
+            Horizon.LoadingIcon.Rotation = 0
+            Horizon.LoadingIcon.Image = "rbxassetid://3926305904"
+            Horizon.LoadingIcon.ImageRectOffset = Vector2.new(312, 4)
+            Horizon.LoadingIcon.ImageRectSize = Vector2.new(24, 24)
+        end
+    end
 end)
 
 TweenServ:Create(Horizon.Loading, TweenInfo.new(0.6, Enum.EasingStyle.Elastic), {Position = UDim2.new(0.5, 0, 0.02, 0)}):Play()
@@ -1844,9 +1857,10 @@ Horizon.HealthRLabel.AnchorPoint = Vector2.new(0, 0.5)
 Horizon.HealthRLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.HealthRLabel.BackgroundTransparency = 1.000
 Horizon.HealthRLabel.Position = UDim2.new(0.05, 0, 0.5, 0)
-Horizon.HealthRLabel.Size = UDim2.new(0.800000012, 0, 0.600000024, 0)
+Horizon.HealthRLabel.Size = UDim2.new(0.8, 0, 0.8, 0)
 Horizon.HealthRLabel.Font = Enum.Font.Gotham
 Horizon.HealthRLabel.Text = ".50"
+Horizon.HealthRLabel.TextScaled = true
 
 if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
     Horizon.HealthRLabel.TextColor3 = Color3.fromRGB(10, 10, 10)
@@ -1866,9 +1880,10 @@ Horizon.HealthRLabel1.AnchorPoint = Vector2.new(0, 0.5)
 Horizon.HealthRLabel1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.HealthRLabel1.BackgroundTransparency = 1.000
 Horizon.HealthRLabel1.Position = UDim2.new(0.1, 0, 0.5, 0)
-Horizon.HealthRLabel1.Size = UDim2.new(0.800000012, 0, 0.600000024, 0)
+Horizon.HealthRLabel1.Size = UDim2.new(0.8, 0, 0.8, 0)
 Horizon.HealthRLabel1.Font = Enum.Font.Gotham
 Horizon.HealthRLabel1.Text = "       %"
+Horizon.HealthRLabel1.TextScaled = true
 
 if game.Players.LocalPlayer.Name == "DesiredVisa" or game.Players.LocalPlayer.Name == "quantavio" or game.Players.LocalPlayer.Name == "Quantavio_alt3" then
     Horizon.HealthRLabel1.TextColor3 = Color3.fromRGB(10, 10, 10)
@@ -2057,12 +2072,13 @@ Horizon.HomeName.Parent = Horizon.HomeCard
 Horizon.HomeName.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 Horizon.HomeName.BackgroundTransparency = 1
 Horizon.HomeName.TextTransparency = 0
-Horizon.HomeName.Position = UDim2.new(0.0586435199, 0, 0.12, 0)
-Horizon.HomeName.Size = UDim2.new(0.752669811, 0, 0.0521446727, 0)
+Horizon.HomeName.Position = UDim2.new(0.055, 0, 0.085, 0)
+Horizon.HomeName.Size = UDim2.new(1, 0, 0.1, 0)
 Horizon.HomeName.Font = Enum.Font.GothamBlack
 Horizon.HomeName.Text = "Stats"
 Horizon.HomeName.TextColor3 = Color3.fromRGB(233, 233, 233)
 Horizon.HomeName.TextSize = 24.000
+Horizon.HomeName.TextScaled = true
 Horizon.HomeName.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.HomeCardSmallText.Name = "Hint"
@@ -2274,18 +2290,18 @@ Horizon.CloseButtonImage.MouseButton1Click:Connect(function()
     getgenv().HorizonExecuted = false
     spawn(function()
         for _,v in pairs(game.CoreGui:GetChildren()) do
-            if v.Name == "Horizon" then
+            if v.Name == "Horizon" or v.Name == "Load" then
                 v:Destroy()
-            elseif v.Name == "Load" then
-                v:Destroy()
-            elseif v.Name == "Notif" then
+            end
+        end
+        for _,v in pairs(game.ReplicatedStorage:GetChildren()) do
+            if v.Name == "Horizon_Assets" then
                 v:Destroy()
             end
         end
         game:GetService("CoreGui").PlayerList.Enabled = true
         game:GetService("CoreGui").RobloxGui.Backpack.Visible = true
         game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MainQuestFrame.Visible = true
-        TweenServ:Create(game:GetService("Workspace").Camera, TweenInfo.new(0.2, Enum.EasingStyle.Exponential), {FieldOfView = 70}):Play()
     end)
 end)
 
@@ -2308,13 +2324,14 @@ Horizon.Title_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.Title_8.BackgroundTransparency = 1.000
 Horizon.Title_8.TextTransparency = 0
 Horizon.Title_8.BorderSizePixel = 0
-Horizon.Title_8.Position = UDim2.new(0.0586435199, 0, 0.12, 0)
-Horizon.Title_8.Size = UDim2.new(0.752669811, 0, 0.0521446727, 0)
+Horizon.Title_8.Position = UDim2.new(0.058, 0, 0.085, 0)
+Horizon.Title_8.Size = UDim2.new(1, 0, 0.1, 0)
 Horizon.Title_8.ZIndex = 2
 Horizon.Title_8.Font = Enum.Font.GothamBlack
 Horizon.Title_8.Text = "Friends"
 Horizon.Title_8.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Title_8.TextSize = 24.000
+Horizon.Title_8.TextScaled = true
 Horizon.Title_8.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.Online.Name = "Online"
@@ -2348,13 +2365,14 @@ Horizon.FriendsOnline.Parent = Horizon.Online
 Horizon.FriendsOnline.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.FriendsOnline.BackgroundTransparency = 1.000
 Horizon.FriendsOnline.BorderSizePixel = 0
-Horizon.FriendsOnline.Position = UDim2.new(0.35, 0, 0.492403209, 0)
-Horizon.FriendsOnline.Size = UDim2.new(0.501445949, 0, 0.349281251, 0)
+Horizon.FriendsOnline.Position = UDim2.new(0.35, 0, 0.58, 0)
+Horizon.FriendsOnline.Size = UDim2.new(1, 0, 0.2, 0)
 Horizon.FriendsOnline.Font = Enum.Font.GothamSemibold
 Horizon.FriendsOnline.Text = "6 users"
 Horizon.FriendsOnline.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.FriendsOnline.TextTransparency = 0
 Horizon.FriendsOnline.TextSize = 14.000
+Horizon.FriendsOnline.TextScaled = true
 Horizon.FriendsOnline.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.Title_9.Name = "Title"
@@ -2363,12 +2381,13 @@ Horizon.Title_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.Title_9.BackgroundTransparency = 1.000
 Horizon.Title_9.TextTransparency = 0
 Horizon.Title_9.BorderSizePixel = 0
-Horizon.Title_9.Position = UDim2.new(0.35, 0, 0.167414561, 0)
-Horizon.Title_9.Size = UDim2.new(0.660811782, 0, 0.349281251, 0)
+Horizon.Title_9.Position = UDim2.new(0.35, 0, 0.23, 0)
+Horizon.Title_9.Size = UDim2.new(1, 0, 0.22, 0)
 Horizon.Title_9.Font = Enum.Font.GothamBold
 Horizon.Title_9.Text = "Online"
 Horizon.Title_9.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Title_9.TextSize = 14.000
+Horizon.Title_9.TextScaled = true
 Horizon.Title_9.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.UIGradient_21.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(45, 45, 45)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(49, 49, 49))}
@@ -2406,12 +2425,13 @@ Horizon.FriendsInGame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.FriendsInGame.BackgroundTransparency = 1.000
 Horizon.FriendsInGame.TextTransparency = 0
 Horizon.FriendsInGame.BorderSizePixel = 0
-Horizon.FriendsInGame.Position = UDim2.new(0.35, 0, 0.492403209, 0)
-Horizon.FriendsInGame.Size = UDim2.new(0.501445949, 0, 0.349281251, 0)
+Horizon.FriendsInGame.Position = UDim2.new(0.35, 0, 0.58, 0)
+Horizon.FriendsInGame.Size = UDim2.new(1, 0, 0.2, 0)
 Horizon.FriendsInGame.Font = Enum.Font.GothamSemibold
 Horizon.FriendsInGame.Text = "1 user"
 Horizon.FriendsInGame.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.FriendsInGame.TextSize = 14.000
+Horizon.FriendsInGame.TextScaled = true
 Horizon.FriendsInGame.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.Title_10.Name = "Title"
@@ -2420,12 +2440,13 @@ Horizon.Title_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.Title_10.BackgroundTransparency = 1.000
 Horizon.Title_10.TextTransparency = 0
 Horizon.Title_10.BorderSizePixel = 0
-Horizon.Title_10.Position = UDim2.new(0.35, 0, 0.167414561, 0)
-Horizon.Title_10.Size = UDim2.new(0.660811782, 0, 0.349281251, 0)
+Horizon.Title_10.Position = UDim2.new(0.35, 0, 0.23, 0)
+Horizon.Title_10.Size = UDim2.new(1, 0, 0.22, 0)
 Horizon.Title_10.Font = Enum.Font.GothamBold
 Horizon.Title_10.Text = "In Server"
 Horizon.Title_10.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Title_10.TextSize = 14.000
+Horizon.Title_10.TextScaled = true
 Horizon.Title_10.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.UIGradient_22.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(45, 45, 45)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(49, 49, 49))}
@@ -2462,13 +2483,14 @@ Horizon.FriendsAll.Parent = Horizon.All
 Horizon.FriendsAll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.FriendsAll.BackgroundTransparency = 1.000
 Horizon.FriendsAll.BorderSizePixel = 0
-Horizon.FriendsAll.Position = UDim2.new(0.35, 0, 0.492403209, 0)
-Horizon.FriendsAll.Size = UDim2.new(0.501445949, 0, 0.349281251, 0)
+Horizon.FriendsAll.Position = UDim2.new(0.35, 0, 0.58, 0)
+Horizon.FriendsAll.Size = UDim2.new(1, 0, 0.2, 0)
 Horizon.FriendsAll.Font = Enum.Font.GothamSemibold
 Horizon.FriendsAll.Text = "14 users"
 Horizon.FriendsAll.TextTransparency = 0
 Horizon.FriendsAll.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.FriendsAll.TextSize = 14.000
+Horizon.FriendsAll.TextScaled = true
 Horizon.FriendsAll.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.Title_11.Name = "Title"
@@ -2476,13 +2498,14 @@ Horizon.Title_11.Parent = Horizon.All
 Horizon.Title_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.Title_11.BackgroundTransparency = 1.000
 Horizon.Title_11.BorderSizePixel = 0
-Horizon.Title_11.Position = UDim2.new(0.35, 0, 0.167414561, 0)
-Horizon.Title_11.Size = UDim2.new(0.660811782, 0, 0.349281251, 0)
+Horizon.Title_11.Position = UDim2.new(0.35, 0, 0.23, 0)
+Horizon.Title_11.Size = UDim2.new(1, 0, 0.22, 0)
 Horizon.Title_11.Font = Enum.Font.GothamBold
 Horizon.Title_11.Text = "All"
 Horizon.Title_11.TextTransparency = 0
 Horizon.Title_11.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Title_11.TextSize = 14.000
+Horizon.Title_11.TextScaled = true
 Horizon.Title_11.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.UIGradient_23.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(45, 45, 45)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(49, 49, 49))}
@@ -2522,13 +2545,14 @@ Horizon.FriendsOffline.Parent = Horizon.Offline
 Horizon.FriendsOffline.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.FriendsOffline.BackgroundTransparency = 1.000
 Horizon.FriendsOffline.BorderSizePixel = 0
-Horizon.FriendsOffline.Position = UDim2.new(0.35, 0, 0.492403209, 0)
-Horizon.FriendsOffline.Size = UDim2.new(0.501445949, 0, 0.349281251, 0)
+Horizon.FriendsOffline.Position = UDim2.new(0.35, 0, 0.58, 0)
+Horizon.FriendsOffline.Size = UDim2.new(1, 0, 0.2, 0)
 Horizon.FriendsOffline.Font = Enum.Font.GothamSemibold
 Horizon.FriendsOffline.Text = "7 users"
 Horizon.FriendsOffline.TextTransparency = 0
 Horizon.FriendsOffline.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.FriendsOffline.TextSize = 14.000
+Horizon.FriendsOffline.TextScaled = true
 Horizon.FriendsOffline.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.Title_12.Name = "Title"
@@ -2536,13 +2560,14 @@ Horizon.Title_12.Parent = Horizon.Offline
 Horizon.Title_12.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
 Horizon.Title_12.BackgroundTransparency = 1.000
 Horizon.Title_12.BorderSizePixel = 0
-Horizon.Title_12.Position = UDim2.new(0.35, 0, 0.167414561, 0)
-Horizon.Title_12.Size = UDim2.new(0.660811782, 0, 0.349281251, 0)
+Horizon.Title_12.Position = UDim2.new(0.35, 0, 0.23, 0)
+Horizon.Title_12.Size = UDim2.new(1, 0, 0.22, 0)
 Horizon.Title_12.Font = Enum.Font.GothamBold
 Horizon.Title_12.Text = "Offline"
 Horizon.Title_12.TextTransparency = 0
 Horizon.Title_12.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Title_12.TextSize = 14.000
+Horizon.Title_12.TextScaled = true
 Horizon.Title_12.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.Data.Name = "Data"
@@ -2562,14 +2587,15 @@ Horizon.Title_7.Parent = Horizon.Data
 Horizon.Title_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.Title_7.BackgroundTransparency = 1.000
 Horizon.Title_7.BorderSizePixel = 0
-Horizon.Title_7.Position = UDim2.new(0.0586435199, 0, 0.0674601144, 0)
-Horizon.Title_7.Size = UDim2.new(0.752669811, 0, 0.0521446727, 0)
+Horizon.Title_7.Position = UDim2.new(0.058, 0, 0.065, 0)
+Horizon.Title_7.Size = UDim2.new(1, 0, 0.06, 0)
 Horizon.Title_7.ZIndex = 2
 Horizon.Title_7.Font = Enum.Font.GothamBlack
 Horizon.Title_7.Text = "Information"
 Horizon.Title_7.TextTransparency = 0
 Horizon.Title_7.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Title_7.TextSize = 24.000
+Horizon.Title_7.TextScaled = true
 Horizon.Title_7.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.data.Name = "data"
@@ -2585,13 +2611,14 @@ Horizon.Executor.Parent = Horizon.data
 Horizon.Executor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.Executor.BackgroundTransparency = 1.000
 Horizon.Executor.BorderSizePixel = 0
-Horizon.Executor.Position = UDim2.new(0.0424854718, 0, 0.02, 0)
-Horizon.Executor.Size = UDim2.new(0.930999994, 0, 0.064000003, 0)
+Horizon.Executor.Position = UDim2.new(0, 0, 0.03, 0)
+Horizon.Executor.Size = UDim2.new(1, 0, 0.022, 0)
 Horizon.Executor.Font = Enum.Font.GothamSemibold
 Horizon.Executor.Text = "Executor: Checking..."
 Horizon.Executor.TextTransparency = 0
 Horizon.Executor.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Executor.TextSize = 18.000
+Horizon.Executor.TextScaled = true
 Horizon.Executor.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.Version.Name = "Version"
@@ -2599,31 +2626,29 @@ Horizon.Version.Parent = Horizon.data
 Horizon.Version.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.Version.BackgroundTransparency = 1.000
 Horizon.Version.BorderSizePixel = 0
-Horizon.Version.Position = UDim2.new(0.0424854718, 0, 0.09, 0)
-Horizon.Version.Size = UDim2.new(0.930999994, 0, 0.064000003, 0)
+Horizon.Version.Position = UDim2.new(0, 0, 0.095, 0)
+Horizon.Version.Size = UDim2.new(1, 0, 0.022, 0)
 Horizon.Version.Font = Enum.Font.GothamSemibold
 Horizon.Version.Text = "Version: Checking..."
 Horizon.Version.TextTransparency = 0
 Horizon.Version.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Version.TextSize = 18.000
+Horizon.Version.TextScaled = true
 Horizon.Version.TextXAlignment = Enum.TextXAlignment.Left
-
-Horizon.UIListLayout_13.Parent = Horizon.data
-Horizon.UIListLayout_13.SortOrder = Enum.SortOrder.LayoutOrder
-Horizon.UIListLayout_13.Padding = UDim.new(0, 4)
 
 Horizon.Ping.Name = "Ping"
 Horizon.Ping.Parent = Horizon.data
 Horizon.Ping.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.Ping.BackgroundTransparency = 1.000
 Horizon.Ping.BorderSizePixel = 0
-Horizon.Ping.Position = UDim2.new(0.0424854718, 0, 0.19, 0)
-Horizon.Ping.Size = UDim2.new(0.930999994, 0, 0.064000003, 0)
+Horizon.Ping.Position = UDim2.new(0, 0, 0.16, 0)
+Horizon.Ping.Size = UDim2.new(1, 0, 0.022, 0)
 Horizon.Ping.Font = Enum.Font.GothamSemibold
 Horizon.Ping.Text = "Ping: Checking..."
 Horizon.Ping.TextTransparency = 0
 Horizon.Ping.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Ping.TextSize = 18.000
+Horizon.Ping.TextScaled = true
 Horizon.Ping.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.Time.Name = "Time"
@@ -2631,13 +2656,14 @@ Horizon.Time.Parent = Horizon.data
 Horizon.Time.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.Time.BackgroundTransparency = 1.000
 Horizon.Time.BorderSizePixel = 0
-Horizon.Time.Position = UDim2.new(0.0424854718, 0, 0.19, 0)
-Horizon.Time.Size = UDim2.new(0.930999994, 0, 0.064000003, 0)
+Horizon.Time.Position = UDim2.new(0, 0, 0.225, 0)
+Horizon.Time.Size = UDim2.new(1, 0, 0.022, 0)
 Horizon.Time.Font = Enum.Font.GothamSemibold
 Horizon.Time.Text = "Session Time: Checking..."
 Horizon.Time.TextTransparency = 0
 Horizon.Time.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Time.TextSize = 18.000
+Horizon.Time.TextScaled = true
 Horizon.Time.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.Players.Name = "Players"
@@ -2645,13 +2671,14 @@ Horizon.Players.Parent = Horizon.data
 Horizon.Players.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.Players.BackgroundTransparency = 1.000
 Horizon.Players.BorderSizePixel = 0
-Horizon.Players.Position = UDim2.new(0.0424854718, 0, 0.19, 0)
-Horizon.Players.Size = UDim2.new(0.930999994, 0, 0.064000003, 0)
+Horizon.Players.Position = UDim2.new(0, 0, 0.29, 0)
+Horizon.Players.Size = UDim2.new(1, 0, 0.022, 0)
 Horizon.Players.Font = Enum.Font.GothamSemibold
 Horizon.Players.Text = "Players: Checking..."
 Horizon.Players.TextTransparency = 0
 Horizon.Players.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.Players.TextSize = 18.000
+Horizon.Players.TextScaled = true
 Horizon.Players.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.File.Name = "File"
@@ -2659,13 +2686,14 @@ Horizon.File.Parent = Horizon.data
 Horizon.File.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Horizon.File.BackgroundTransparency = 1.000
 Horizon.File.BorderSizePixel = 0
-Horizon.File.Position = UDim2.new(2, 0, 1, 0)
-Horizon.File.Size = UDim2.new(0.931235611, 0, 0.0639292598, 0)
+Horizon.File.Position = UDim2.new(0, 0, 0.355, 0)
+Horizon.File.Size = UDim2.new(1, 0, 0.022, 0)
 Horizon.File.Font = Enum.Font.GothamSemibold
 Horizon.File.Text = "Horizon Data File: Checking..."
 Horizon.File.TextTransparency = 0
 Horizon.File.TextColor3 = Color3.fromRGB(238, 238, 238)
 Horizon.File.TextSize = 18.000
+Horizon.File.TextScaled = true
 Horizon.File.TextXAlignment = Enum.TextXAlignment.Left
 
 Horizon.ActionFrame.Name = "ActionFrame"
@@ -2728,8 +2756,7 @@ Horizon.Execute.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Horizon.Execute.BackgroundTransparency = 0.850
 Horizon.Execute.BorderSizePixel = 0
 Horizon.Execute.Position = UDim2.new(0.980000019, 0, 0.5, 0)
-Horizon.Execute.Size = UDim2.new(1.55000002, 0, 0.699999988, 0)
-Horizon.Execute.SizeConstraint = Enum.SizeConstraint.RelativeYY
+Horizon.Execute.Size = UDim2.new(0.16, 0, 0.7, 0)
 
 Horizon.UICorner_5.CornerRadius = UDim.new(0, 10)
 Horizon.UICorner_5.Parent = Horizon.Execute
@@ -2767,8 +2794,7 @@ Horizon.AutoExe.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Horizon.AutoExe.BackgroundTransparency = 0.850
 Horizon.AutoExe.BorderSizePixel = 0
 Horizon.AutoExe.Position = UDim2.new(0.8, 0, 0.5, 0)
-Horizon.AutoExe.Size = UDim2.new(0.699999988, 0, 0.699999988, 0)
-Horizon.AutoExe.SizeConstraint = Enum.SizeConstraint.RelativeYY
+Horizon.AutoExe.Size = UDim2.new(0.075, 0, 0.7, 0)
 
 Horizon.UICorner_6.CornerRadius = UDim.new(0, 10)
 Horizon.UICorner_6.Parent = Horizon.AutoExe
@@ -3217,16 +3243,6 @@ local TrainPPDouble = false
 local TrainFSDouble = false
 
 spawn(function()
-    while task.wait(1) do
-        pcall(function()
-            if PreTrain == false then
-                SavedQualityLevel = settings().Rendering.QualityLevel
-            end
-        end)
-    end
-end)
-
-spawn(function()
     if LastPosition ~= false then
         local hesw = math.huge
         game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
@@ -3284,10 +3300,13 @@ spawn(function()
 end)
 
 repeat task.wait() until game.Players.LocalPlayer.Character
-game.Players.LocalPlayer.OsPlatform = "Horizon"
 
 spawn(function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/kjasudgfisdfh/quan/main/audio', true))()
+end)
+
+spawn(function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/DesiredVisa/Other-Stuffs/main/AuraChanger', true))()
 end)
 
 Horizon.LoadingText.Text = "Horizon is getting ready."
@@ -3478,7 +3497,10 @@ spawn(function()
 end)
 
 function PrepareTrain()
-    PreTrain = true
+    if SavedQualityLevel ~= "Level01" then
+        SavedQualityLevel = settings().Rendering.QualityLevel
+    end
+    task.wait(0.1)
     setfpscap(45)
     settings().Rendering.QualityLevel = "Level01"
     if BeforeTrainPos == false then
@@ -3546,7 +3568,6 @@ function RespawnAP()
         game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
         task.wait()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1194.60498, 74686.8906, 3100.53247, -0.997010887, 0.00568253966, -0.0770515501, 1.44715587e-10, 0.997291505, 0.0735500902, 0.0772608072, 0.0733302459, -0.994310558)
-        task.wait(1.45)
     end)
 end
 
@@ -3555,7 +3576,7 @@ spawn(function()
     game.Players.LocalPlayer.CharacterAdded:Connect(function()
         repeat task.wait() until game.Players.LocalPlayer.Character.HumanoidRootPart
         Spawned = true
-        task.wait(0.35)
+        task.wait(0.4)
         if oldposition ~= nil then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldposition
         end
@@ -4798,12 +4819,10 @@ Plrs.PlayerAdded:connect(function(plr)
 	if CharAddedEvent[plr.Name] == nil then
 		CharAddedEvent[plr.Name] = plr.CharacterAdded:connect(function(char)
 			if _G.betterEsp then
-                pcall(function()
-                    repeat task.wait() until plr.PrivateStats and plr.Character and plr.Character.Head
-                    RemoveESP(plr)
-                    task.wait()
-                    CreateESP(plr)
-                end)
+                repeat task.wait() until plr
+                RemoveESP(plr)
+                task.wait()
+                CreateESP(plr)
 			end
 		end)
 	end
@@ -4823,6 +4842,7 @@ local Timeout = math.huge
 
 function CreateESP(plr)
     pcall(function()
+        repeat task.wait() until plr
         if plr ~= nil then
             plrname = plr.Name
             local GetChar = plr.Character
@@ -5707,7 +5727,7 @@ MusicTable.Button_2.MouseButton1Click:Connect(function()
 	asset.Text = ""
 	MusicTable.LMusic.Playing = true
 	MusicTable.LMusic.TimePosition = 0
-	MusicTable.PlayIcon.Visible.Visible = false
+	MusicTable.PlayIcon.Visible = false
 	MusicTable.PauseIcon.Visible = true
 end)
 
@@ -5933,7 +5953,7 @@ HasFullyExecuted = true
 Horizon.Bar.Visible = true
 
 spawn(function()
-TweenServ:Create(game:GetService("CoreGui").RobloxGui.Backpack, TweenInfo.new(1, Enum.EasingStyle.Elastic), {Position = UDim2.new(0.2, 0 , -0.965, 0)}):Play()
+TweenServ:Create(game:GetService("CoreGui").RobloxGui.Backpack, TweenInfo.new(1, Enum.EasingStyle.Elastic), {Position = UDim2.new(0.2, 0, -0.965, 0)}):Play()
 TweenServ:Create(Horizon.Bar, TweenInfo.new(1, Enum.EasingStyle.Exponential), {Position = UDim2.new(0.5, 0, 0.948, 0)}):Play()
 TweenServ:Create(Horizon.Loading, TweenInfo.new(1, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
 Horizon.LoadingText.Text = "Loading Playerlist."
@@ -6020,6 +6040,7 @@ end
 game:GetService("ContentProvider"):PreloadAsync(preload)
 
 Horizon.LoadingText.Text = "Horizon is done loading."
+CheckIt = true
 
 task.wait(2)
 
@@ -6109,10 +6130,6 @@ spawn(function()
             end
         end
     end)
-end)
-
-spawn(function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/DesiredVisa/Other-Stuffs/main/AuraChanger', true))()
 end)
 
 game:GetService("Players").LocalPlayer.Idled:connect(function()
