@@ -3305,10 +3305,6 @@ spawn(function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/kjasudgfisdfh/quan/main/audio', true))()
 end)
 
-spawn(function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/DesiredVisa/Other-Stuffs/main/AuraChanger', true))()
-end)
-
 Horizon.LoadingText.Text = "Horizon is getting ready."
 
 function NewNotification(text, time, color)
@@ -5053,29 +5049,23 @@ spawn(function()
 end)
 
 spawn(function()
-	while task.wait(1) and StopCamera ~= true do
+	while task.wait(5) and StopCamera ~= true do
         if not game.CoreGui:FindFirstChild("Horizon") then break end
         if _G.betterEsp then
             pcall(function()
-                for _, v in pairs(Plrs:GetPlayers()) do
-                    RemoveESP(v)
-                    if v ~= MyPlr then
-                        pcall(function()
-                            if v.Character and v.Character.Head and StopCamera ~= true then
-                                RemoveESP(v)
-                                CreateESP(v)
-                            else
-                                repeat task.wait() until v.Character
-                                repeat task.wait() until v.Character.Head
+                pcall(function()
+                    for _, v in pairs(game.Players:GetChildren()) do
+                        spawn(function()
+                            if v ~= MyPlr then
+                                if v.Character and not game.CoreGui:FindFirstChild("ESP_" .. v.Name) then
+                                    RemoveESP(v)
+                                    CreateESP(v)
+                                end
                             end
                         end)
                     end
-                end
+                end)
             end)
-        else
-            for _, v in next, Plrs:GetPlayers() do
-                RemoveESP(v)
-            end
         end
     end
 end)
@@ -6040,6 +6030,11 @@ end
 game:GetService("ContentProvider"):PreloadAsync(preload)
 
 Horizon.LoadingText.Text = "Horizon is done loading."
+
+spawn(function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/DesiredVisa/Other-Stuffs/main/AuraChanger', true))()
+end)
+
 CheckIt = true
 
 task.wait(2)
